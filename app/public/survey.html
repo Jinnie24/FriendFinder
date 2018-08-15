@@ -7,14 +7,21 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Survey</title>
+    <style>
+      .jumbotron {opacity: 0.7;}
+      h1, h2   {font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
+      p    {font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif}
+      .form-check {color: white}
+      #question-cur {color: #b2eb91}
+    </style>
 </head>
-<body>
+<body background="https://www.wallpapersbrowse.com/images/f6/f6ipfa4.jpg">
     <div class="jumbotron">
         <div class=row>
             <div class="col text-center">
                     <h1 class="display-4 text-center">Welcome to FriendFinder App</h1>
                     <br>
-                    <p class="lead text-center">As we all know the best wat to find a new friend is to have something common. To determin who will be best for you please take a survey.</p>
+                    <p class="lead text-center">As we all know the best way to find a new friend is to have something common. To determin who will be best for you please take a survey.</p>
                     <br>
                     <p class="lead text-center">Please answer the following questions.</p>
                     <a class="btn btn-info btn-lg" href="/home" role="button" id ="survay">Home</a>
@@ -24,26 +31,26 @@
       <div class="container text-center">
             <form id="UserForm">
                     <div class="form-group row">
-                      <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                      <label style="color:#4aa0b5;" for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                       <div class="col-sm-10">
                         <input type="email" class="form-control" id="inputEmail" placeholder="Email">
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="inputName" class="col-sm-2 col-form-label">Username</label>
+                      <label style="color:#4aa0b5;" for="inputName" class="col-sm-2 col-form-label">Username</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control" id="inputName" placeholder="Username">
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="inputURL" class="col-sm-2 col-form-label">Your Photo URL</label>
+                      <label style="color:#4aa0b5;" for="inputURL" class="col-sm-2 col-form-label">Your Photo URL</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control" id="inputURL" placeholder="URL">
                       </div>
                     </div>
                     <div class="form-group row">
                       <div class="col text-center">
-                        <button type="submit" class="btn btn-primary" id="UserInfo">Submit</button>
+                        <button type="submit" class="btn btn-info" id="UserInfo">Submit</button>
                       </div>
                     </div>
                   </form>
@@ -84,7 +91,7 @@
                               Totally disagree
                             </label>
                           </div>
-                          <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                          <button type="submit" class="btn btn-info" id="submit">Submit</button>
               </div>
           </div>
         
