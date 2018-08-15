@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Survey</title>
+</head>
+<body>
+    <div class="jumbotron">
+        <div class=row>
+            <div class="col text-center">
+                    <h1 class="display-4 text-center">Welcome to FriendFinder App</h1>
+                    <br>
+                    <p class="lead text-center">As we all know the best wat to find a new friend is to have something common. To determin who will be best for you please take a survey.</p>
+                    <br>
+                    <p class="lead text-center">Please answer the following questions.</p>
+                    <a class="btn btn-info btn-lg" href="/home" role="button" id ="survay">Home</a>
+            </div>
+        </div>
+      </div>
+      <div class="container text-center">
+            <form id="UserForm">
+                    <div class="form-group row">
+                      <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputName" class="col-sm-2 col-form-label">Username</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputName" placeholder="Username">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputURL" class="col-sm-2 col-form-label">Your Photo URL</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputURL" placeholder="URL">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col text-center">
+                        <button type="submit" class="btn btn-primary" id="UserInfo">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+          <div class="row">
+              <div class= "col text-center">
+                    <p><span id="question-cur"></span></p>
+              </div>
+          </div>
+          <div class="row" id="form1">
+              <div class="col text-center">
+                    <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="1">
+                            <label class="form-check-label" for="Radios1">
+                              Totally agree
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="2">
+                            <label class="form-check-label" for="Radios2">
+                              More agree than disagree
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Radios" id="Radios3" value="3">
+                            <label class="form-check-label" for="Radios3">
+                              Neither agree or disagree
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Radios" id="Radios4" value="4">
+                            <label class="form-check-label" for="Radios4">
+                              More disagree than agree
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Radios" id="Radios5" value="5">
+                            <label class="form-check-label" for="Radios5">
+                              Totally disagree
+                            </label>
+                          </div>
+                          <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+              </div>
+          </div>
+        
+      </div>
+      <div id="resultMod" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title"><strong>Your Best Match</strong></h2>
+            </div>
+            <div class="modal-body">
+              <h2 id="best-match-name"></h2>
+              <img id="best-match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script type="text/javascript">
+      var questionArr = ["1. I see myself as extraverted, enthusiastic.",
+        "2. I see myself as critical, quarrelsome.",
+        "3. I see myself as dependable, self-disciplined.",
+        "4. I see myself as anxious, easily upset.", 
+        "5. I see myself as open to new experiences, complex.",
+        "6. I see myself as reserved, quiet.", 
+        "7. I see myself as sympathetic, warm.", 
+        "8. I see myself as disorganized, careless.",
+        "9. I see myself as calm, emotionally stable.",
+        "10. I see myself as conventional, uncreative."];
+var i = 0;
+var username, email, photo = "";
+
+
+var answerArr = [];        
+        $(document).ready(function(){
+            $("#submit").hide();
+            $("#form1").hide();
+            $("#UserInfo").on("click", function(event){
+                event.preventDefault();
+                username = $("#inputName").val().trim();
+                email = $("#inputEmail").val().trim();
+                photo = $("#inputURL").val().trim();
+                console.log(username + " " + email);
+                newQuestion();
+                $("#UserInfo").hide();
+                $("#UserForm").hide();
+                $("#submit").show();
+                $("#form1").show();
+            });
+            
+            $("#submit").on("click", function(event){
+                event.preventDefault();
+                if(i==10) {
+                    getValue();
+                    var newUser = {
+                    "name": username,
+                    "email": email,
+                    "photo": photo,
+                    "scores": answerArr
+                  }
+                  console.log(newUser);
+                
+                  $.post("/api/friends", newUser)
+                  .then(function(data) {
+                    result();
+                    $("#best-match-name").text(data.name);
+                    $('#best-match-img').attr("src", data.photo);
+                    // Show the modal with the best match 
+                    $("#resultMod").modal('show');
+                  });
+                    
+                } else {
+                    getValue();
+                    newQuestion();
+                }
+                
+            });
+
+            function newQuestion() {
+                var currentQuestion = questionArr[i];
+                console.log(currentQuestion);
+                $("#question-cur").html(currentQuestion);
+                i++;
+            }
+
+            function getValue() {
+                var vseinput= $('.form-check-input');
+                for (var i =0; i<vseinput.length; i++){
+                    if($(vseinput[i]).prop('checked')){
+                        var value = $(vseinput[i]).attr("value");
+                        var answerValue = parseInt(value);
+                        console.log(answerValue);
+                        answerArr.push(answerValue);
+                    }
+                }
+            }
+            function result() {
+                $(".container").html("Thank you for your participation!");
+            }
+
+           
+        });
+        </script>
+</body>
+</html>
